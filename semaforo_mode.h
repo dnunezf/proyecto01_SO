@@ -1,0 +1,14 @@
+/*
+* PROYECTO PROGRAMADO 01
+* SISTEMAS OPERATIVOS
+* ESTUDIANTE:
+* David Núñez Franco, 119080008
+* CREATED 13/04/2025
+* */
+
+#ifndef SEMAFORO_MODE_H
+#define SEMAFORO_MODE_H
+
+void iniciar_semaforo();
+
+#endif //SEMAFORO_MODE_H

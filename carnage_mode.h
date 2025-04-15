@@ -1,0 +1,14 @@
+/*
+* PROYECTO PROGRAMADO 01
+* SISTEMAS OPERATIVOS
+* ESTUDIANTE:
+* David Núñez Franco, 119080008
+* CREATED 13/04/2025
+* */
+
+#ifndef CARNAGE_MODE_H
+#define CARNAGE_MODE_H
+
+void iniciar_carnage();
+
+#endif //CARNAGE_MODE_H

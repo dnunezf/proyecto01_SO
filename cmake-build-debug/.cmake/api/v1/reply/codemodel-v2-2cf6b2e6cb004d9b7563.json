@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "proyecto_puente",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "proyecto_puente::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-proyecto_puente-Debug-cff6123b4523741c68be.json",
+					"name" : "proyecto_puente",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/media/david/David/BACHILLERATO INGENIER\u00cdA EN SISTEMAS DE LA INFORMACI\u00d3N/CICLO 1 2025/Sistemas Operativos/PROYECTO 01/Proyecto 01 - David Nunez Franco/proyecto_puente/cmake-build-debug",
+		"source" : "/media/david/David/BACHILLERATO INGENIER\u00cdA EN SISTEMAS DE LA INFORMACI\u00d3N/CICLO 1 2025/Sistemas Operativos/PROYECTO 01/Proyecto 01 - David Nunez Franco/proyecto_puente"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

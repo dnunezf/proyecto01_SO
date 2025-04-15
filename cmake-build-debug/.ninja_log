@@ -1,0 +1,20 @@
+# ninja log v6
+1	56	1744594266450000000	CMakeFiles/proyecto_puente.dir/semaforo_mode.c.o	32a7d5549e0ab698
+64	98	1744594266510000000	proyecto_puente	efe20c47e7dd949e
+1	46	1744594266450000000	CMakeFiles/proyecto_puente.dir/carnage_mode.c.o	c0782e6fcb2f58d6
+5	77	1744592817590000000	CMakeFiles/proyecto_puente.dir/config.c.o	cf72c9a689faac94
+5	77	1744592817590000000	CMakeFiles/proyecto_puente.dir/main.c.o	5343b4630cc91b7a
+5	77	1744592817590000000	CMakeFiles/proyecto_puente.dir/common.c.o	a024ad17be16d317
+1	25	1744660933690000000	build.ninja	9d33b82080e90ab6
+2	64	1744594266450000000	CMakeFiles/proyecto_puente.dir/oficiales_mode.c.o	b38e33a740d7ccb3
+2	63	1744660940470000000	CMakeFiles/proyecto_puente.dir/config.c.o	c3a4db461c902a3d
+2	63	1744660940470000000	CMakeFiles/proyecto_puente.dir/common.c.o	7de56fc094dbc762
+1	63	1744660940470000000	CMakeFiles/proyecto_puente.dir/main.c.o	8bb408ab31d9cd8d
+2	75	1744660940470000000	CMakeFiles/proyecto_puente.dir/carnage_mode.c.o	6529b3a81c294d74
+3	80	1744660940470000000	CMakeFiles/proyecto_puente.dir/oficiales_mode.c.o	7d92446ff6ef7a21
+3	87	1744660940470000000	CMakeFiles/proyecto_puente.dir/semaforo_mode.c.o	db1bc707389048fc
+87	123	1744660940560000000	proyecto_puente	efe20c47e7dd949e
+7	120	1744685009840000000	CMakeFiles/proyecto_puente.dir/carnage_mode.c.o	6529b3a81c294d74
+8	120	1744685009840000000	CMakeFiles/proyecto_puente.dir/semaforo_mode.c.o	db1bc707389048fc
+8	121	1744685009840000000	CMakeFiles/proyecto_puente.dir/oficiales_mode.c.o	7d92446ff6ef7a21
+121	159	1744685009950000000	proyecto_puente	efe20c47e7dd949e

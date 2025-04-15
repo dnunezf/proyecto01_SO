@@ -1,0 +1,16 @@
+# Parámetros de llegada y velocidad
+mean_arrival_time_east=2
+mean_arrival_time_west=3
+min_speed_east=30
+max_speed_east=50
+min_speed_west=25
+max_speed_west=45
+ambulance_probability=0.2
+
+# Tiempos de luz verde por dirección (en segundos)
+semaforo_time_east=5
+semaforo_time_west=5
+
+# K autos
+k1=3
+k2=2

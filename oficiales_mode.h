@@ -1,0 +1,14 @@
+/*
+* PROYECTO PROGRAMADO 01
+* SISTEMAS OPERATIVOS
+* ESTUDIANTE:
+* David Núñez Franco, 119080008
+* CREATED 13/04/2025
+* */
+
+#ifndef OFICIALES_MODE_H
+#define OFICIALES_MODE_H
+
+void iniciar_oficiales();
+
+#endif //OFICIALES_MODE_H

@@ -1,0 +1,3 @@
+/media/david/David/BACHILLERATO INGENIERÍA EN SISTEMAS DE LA INFORMACIÓN/CICLO 1 2025/Sistemas Operativos/PROYECTO 01/Proyecto 01 - David Nunez Franco/proyecto_puente/cmake-build-debug/CMakeFiles/proyecto_puente.dir
+/media/david/David/BACHILLERATO INGENIERÍA EN SISTEMAS DE LA INFORMACIÓN/CICLO 1 2025/Sistemas Operativos/PROYECTO 01/Proyecto 01 - David Nunez Franco/proyecto_puente/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/david/David/BACHILLERATO INGENIERÍA EN SISTEMAS DE LA INFORMACIÓN/CICLO 1 2025/Sistemas Operativos/PROYECTO 01/Proyecto 01 - David Nunez Franco/proyecto_puente/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -22,6 +22,9 @@ int semaforo_time[2] = {5, 5};
 // CANTIDAD DE VEHICULOS PERMITIDOS POR OFICIALES
 int k_values[2] = {3, 2};
 
+// VALOR POR DEFECTO 2, LONGITUD DEL PUENTE (CONTROLA CUANTOS ENTRAN)
+int bridge_length = 2;
+
 // LEE PARAMETROS DE SIMULACION DESDE UN ARCHIVO DE CONFIGURACION. VALIDO CLAVE=VALOR
 void leer_configuracion(const char* filename) {
     FILE* file = fopen(filename, "r");
@@ -50,6 +53,7 @@ void leer_configuracion(const char* filename) {
         else if (strcmp(key, "semaforo_time_west") == 0) semaforo_time[1] = (int)value;
         else if (strcmp(key, "k1") == 0) k_values[0] = (int)value;
         else if (strcmp(key, "k2") == 0) k_values[1] = (int)value;
+        else if (strcmp(key, "bridge_length") == 0) bridge_length = (int)value;
     }
 
     fclose(file);

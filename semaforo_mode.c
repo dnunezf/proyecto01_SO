@@ -30,8 +30,10 @@ typedef struct {
 pthread_mutex_t semaforo_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t semaforo_cond = PTHREAD_COND_INITIALIZER;
 
-// ESTADO DEL PUENTE EN MODO SEMAFORO
-int semaforo_bridge_count = 0;
+// VECTOR DE PUENTE
+Vehicle** semaforo_puente;
+
+int semaforo_puente_ocupado = 0;
 int current_green = EAST; // DIRECCION QUE TIENE LUZ VERDE
 int semaforo_vehicle_id_counter = 0;
 int semaforo_ambulancia_en_espera[2] = {0, 0};
@@ -60,15 +62,14 @@ void* semaforo_vehicle_thread(void* arg) {
     pthread_mutex_lock(&semaforo_mutex);
     if (v->is_ambulance) semaforo_ambulancia_en_espera[v->direction]++;
 
-    // ESPERA LUZ VERDE O PRIORIDAD POR SER AMBULANCIA
-    while ((v->direction != current_green && !v->is_ambulance) ||
-           (semaforo_bridge_count > 0 && semaforo_bridge_count < 0)) {
+    // ESPERA LUZ VERDE O PRIORIDAD, Y QUE HAYA ESPACIO EN EL PUENTE
+    while (((v->direction != current_green) && !v->is_ambulance) || (semaforo_puente_ocupado >= bridge_length)) {
         pthread_cond_wait(&semaforo_cond, &semaforo_mutex);
     }
 
     if (v->is_ambulance) semaforo_ambulancia_en_espera[v->direction]--;
 
-    semaforo_bridge_count++;
+    semaforo_puente[semaforo_puente_ocupado++] = v;
 
     if (v->is_ambulance)
         printf("🚑 Ambulancia %d entra desde %s (con prioridad)\n", v->id, v->direction == EAST ? "Este" : "Oeste");
@@ -81,8 +82,8 @@ void* semaforo_vehicle_thread(void* arg) {
     sleep((int)(100.0 / v->speed));
 
     pthread_mutex_lock(&semaforo_mutex);
-    semaforo_bridge_count--;
 
+    semaforo_puente_ocupado--;
     printf("🚙 Vehículo %d salió del puente\n", v->id);
 
     pthread_cond_broadcast(&semaforo_cond);
@@ -120,8 +121,11 @@ void* semaforo_generar_vehiculos(void* dir_ptr) {
 */
 void iniciar_semaforo() {
     srand(time(NULL));
-    pthread_t semaforo_tid, east_gen, west_gen;
 
+    // INICIALIZA EL VECTOR DEL PUENTE CON TAMAÑO DINAMICO
+    semaforo_puente = malloc(sizeof(Vehicle*) * bridge_length);
+
+    pthread_t semaforo_tid, east_gen, west_gen;
     int d0 = EAST;
     int d1 = WEST;
 
@@ -132,4 +136,6 @@ void iniciar_semaforo() {
     pthread_join(semaforo_tid, NULL);
     pthread_join(east_gen, NULL);
     pthread_join(west_gen, NULL);
+
+    free(semaforo_puente);
 }

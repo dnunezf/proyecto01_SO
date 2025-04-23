@@ -30,8 +30,10 @@ typedef struct {
 pthread_mutex_t oficiales_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t oficiales_cond = PTHREAD_COND_INITIALIZER;
 
-// ESTADO DEL PUENTE Y CONTROL DEL TURNO
-int oficiales_bridge_count = 0;
+// VECTOR DE PUENTE
+Vehicle** oficiales_puente;
+
+int oficiales_puente_ocupado = 0;
 int oficiales_vehicle_id = 0;
 int turno_actual = EAST; // DIRECCION ACTUALMENTE HABILITADA
 int k_counter = 0; // CANTIDAD DE VEHICULOS QUE HAN PASADO EN TURNO ACTUAL
@@ -48,7 +50,7 @@ void* oficiales_controller(void* arg) {
         // Cambiar de sentido cuando se cumpla K o no haya vehículos
         int max_k = (turno_actual == EAST) ? k_values[0] : k_values[1];
 
-        if (k_counter >= max_k || (oficiales_ambulancia_en_espera[turno_actual] == 0 && oficiales_bridge_count == 0)) {
+        if (k_counter >= max_k || (oficiales_ambulancia_en_espera[turno_actual] == 0 && oficiales_puente_ocupado == 0)) {
             turno_actual = 1 - turno_actual; // CAMBIA EL TURNO
             k_counter = 0;
             printf("👮 Cambio de dirección: ahora el turno es para %s\n", turno_actual == EAST ? "Este" : "Oeste");
@@ -70,15 +72,15 @@ void* oficiales_vehicle_thread(void* arg) {
     pthread_mutex_lock(&oficiales_mutex);
     if (v->is_ambulance) oficiales_ambulancia_en_espera[v->direction]++;
 
-    // ESPERA SU TURNO O SEA AMBULANCIA
-    while ((v->direction != turno_actual && !v->is_ambulance) ||
-           (oficiales_bridge_count > 0 && v->direction != turno_actual)) {
+    // ESPERA SU TURNO, ESPACIO O SEA AMBULANCIA
+    while (((v->direction != turno_actual && !v->is_ambulance) || (oficiales_puente_ocupado >= bridge_length))) {
         pthread_cond_wait(&oficiales_cond, &oficiales_mutex);
     }
 
     if (v->is_ambulance) oficiales_ambulancia_en_espera[v->direction]--;
 
-    oficiales_bridge_count++;
+    // INGRESA AL PUENTE
+    oficiales_puente[oficiales_puente_ocupado++] = v;
     k_counter++;
 
     if (v->is_ambulance)
@@ -92,7 +94,8 @@ void* oficiales_vehicle_thread(void* arg) {
     sleep((int)(100.0 / v->speed));
 
     pthread_mutex_lock(&oficiales_mutex);
-    oficiales_bridge_count--;
+
+    oficiales_puente_ocupado--;
     printf("🚙 Vehículo %d salió del puente\n", v->id);
 
     pthread_cond_broadcast(&oficiales_cond); // NOTIFICA QUE PUEDE HABER ESPACIO PARA OTRO
@@ -129,7 +132,12 @@ void* oficiales_generar_vehiculos(void* dir_ptr) {
 */
 void iniciar_oficiales() {
     srand(time(NULL));
+
+    // INICIALIZA EL VECTOR DEL PUENTE CON TAMAÑO DINAMICO
+    oficiales_puente = malloc(sizeof(Vehicle*) * bridge_length);
+
     pthread_t controller_tid, east_gen, west_gen;
+
     int d0 = EAST, d1 = WEST;
 
     pthread_create(&controller_tid, NULL, oficiales_controller, NULL);
@@ -139,4 +147,6 @@ void iniciar_oficiales() {
     pthread_join(controller_tid, NULL);
     pthread_join(east_gen, NULL);
     pthread_join(west_gen, NULL);
+
+    free(oficiales_puente);
 }

@@ -14,6 +14,7 @@ extern double min_speed[2], max_speed[2];
 extern double ambulance_probability;
 extern int semaforo_time[2];
 extern int k_values[2];
+extern int bridge_length;
 
 void leer_configuracion(const char* filename);
 

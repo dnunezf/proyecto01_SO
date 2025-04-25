@@ -5,7 +5,10 @@ min_speed_east=30
 max_speed_east=50
 min_speed_west=25
 max_speed_west=45
-ambulance_probability=0.2
+
+# Probabilidad de generación de ambulancias, tanto en lado este como oeste
+ambulance_probability_east=0.2
+ambulance_probability_west=0.25
 
 # Longitud del puente
 bridge_length=2

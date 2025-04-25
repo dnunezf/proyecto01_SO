@@ -14,7 +14,10 @@
 // SE DEFINEN LOS ARREGLOS GLOBALES PARA PARAMETROS DE CONFIGURACION POR DIRECCION
 double mean_arrival_time[2];
 double min_speed[2], max_speed[2];
-double ambulance_probability;
+
+// PROBABILIDAD DE GENERACION DE AMBULANCIAS
+double ambulance_probability_east;
+double ambulance_probability_west;
 
 // TIEMPOS DE SEMAFORO PARA CADA DIRECCION (SECONDS)
 int semaforo_time[2] = {5, 5};
@@ -48,7 +51,8 @@ void leer_configuracion(const char* filename) {
         else if (strcmp(key, "max_speed_east") == 0) max_speed[0] = value;
         else if (strcmp(key, "min_speed_west") == 0) min_speed[1] = value;
         else if (strcmp(key, "max_speed_west") == 0) max_speed[1] = value;
-        else if (strcmp(key, "ambulance_probability") == 0) ambulance_probability = value;
+        else if (strcmp(key, "ambulance_probability_east") == 0) ambulance_probability_east = value;
+        else if (strcmp(key, "ambulance_probability_west") == 0) ambulance_probability_west = value;
         else if (strcmp(key, "semaforo_time_east") == 0) semaforo_time[0] = (int)value;
         else if (strcmp(key, "semaforo_time_west") == 0) semaforo_time[1] = (int)value;
         else if (strcmp(key, "k1") == 0) k_values[0] = (int)value;

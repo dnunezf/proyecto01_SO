@@ -11,7 +11,8 @@
 
 extern double mean_arrival_time[2];
 extern double min_speed[2], max_speed[2];
-extern double ambulance_probability;
+extern double ambulance_probability_east;
+extern double ambulance_probability_west;
 extern int semaforo_time[2];
 extern int k_values[2];
 extern int bridge_length;

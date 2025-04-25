@@ -41,3 +41,10 @@
 1	35	1745382407910000000	CMakeFiles/proyecto_puente.dir/oficiales_mode.c.o	7d92446ff6ef7a21
 1	35	1745382407910000000	CMakeFiles/proyecto_puente.dir/semaforo_mode.c.o	db1bc707389048fc
 35	52	1745382407950000000	proyecto_puente	efe20c47e7dd949e
+5	113	1745596538310000000	CMakeFiles/proyecto_puente.dir/main.c.o	8bb408ab31d9cd8d
+6	113	1745596538320000000	CMakeFiles/proyecto_puente.dir/common.c.o	7de56fc094dbc762
+5	114	1745596538310000000	CMakeFiles/proyecto_puente.dir/config.c.o	c3a4db461c902a3d
+6	114	1745596538320000000	CMakeFiles/proyecto_puente.dir/carnage_mode.c.o	6529b3a81c294d74
+6	114	1745596538320000000	CMakeFiles/proyecto_puente.dir/semaforo_mode.c.o	db1bc707389048fc
+7	115	1745596538320000000	CMakeFiles/proyecto_puente.dir/oficiales_mode.c.o	7d92446ff6ef7a21
+115	149	1745596538420000000	proyecto_puente	efe20c47e7dd949e

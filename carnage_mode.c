@@ -89,7 +89,12 @@ void* carnage_generar_vehiculos(void* dir_ptr) {
         Vehicle* v = malloc(sizeof(Vehicle));
         v->id = __sync_fetch_and_add(&carnage_vehicle_id_counter, 1);
         v->direction = direction;
-        v->is_ambulance = ((double) rand() / RAND_MAX) < ambulance_probability;
+
+        if (direction == EAST)
+            v->is_ambulance = ((double) rand() / RAND_MAX) < ambulance_probability_east;
+        else
+            v->is_ambulance = ((double) rand() / RAND_MAX) < ambulance_probability_west;
+
         v->speed = random_speed(direction);
 
         pthread_t tid;

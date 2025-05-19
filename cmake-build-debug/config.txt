@@ -1,22 +1,22 @@
 # Parámetros de llegada y velocidad
 mean_arrival_time_east=2
 mean_arrival_time_west=3
-min_speed_east=30
-max_speed_east=50
-min_speed_west=25
-max_speed_west=45
+min_speed_east=60
+max_speed_east=80
+min_speed_west=1
+max_speed_west=10
 
 # Probabilidad de generación de ambulancias, tanto en lado este como oeste
-ambulance_probability_east=0.2
-ambulance_probability_west=0.25
+ambulance_probability_east=0.15
+ambulance_probability_west=0
 
 # Longitud del puente
-bridge_length=2
+bridge_length=50
 
 # Tiempos de luz verde por dirección (en segundos)
 semaforo_time_east=5
-semaforo_time_west=5
+semaforo_time_west=1
 
 # K autos
-k1=3
-k2=2
+k1=6
+k2=10
